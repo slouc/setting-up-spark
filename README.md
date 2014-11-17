@@ -16,9 +16,11 @@ Here’s a quick guide on setting up Spark with Scala in Eclipse IDE.
 You can now simply import the created project as existing project into Eclipse workspace.
 
 ##Working with Spark##
-- Spark is meant to be run on clusters. However, to get you going you can simply run it on your local machine. Make sure to add `.setMaster("local")` whenever you are setting up a configuration for your Spark context:
-`val conf = new SparkConf().setAppName("sparktest").setMaster("local")`
-`val sc = new SparkContext(conf)`
+- Spark is meant to be run on clusters. However, to get you going you can simply run it on your local machine. Make sure to add `.setMaster("local")` whenever you are setting up a configuration for your Spark context:  
+
+`val conf = new SparkConf().setAppName("sparkintro").setMaster("local")`  
+`val sc = new SparkContext(conf)`  
+
 - Code that performs the calculation in the `Main.scala` example is taken from an [official examples page](https://spark.apache.org/examples.html)
 
 This is it! Hopefully you now have your project up and running, all dependencies resolved and estimated value of Pi printing out on your console.
