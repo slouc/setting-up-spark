@@ -1,4 +1,4 @@
-#Sparkintro#
+#Spark Intro#
 
 Here’s a quick guide on setting up Spark with Scala in Eclipse IDE.
 
