@@ -1,4 +1,4 @@
-#Spark Intro#
+#Scala Spark in Eclipse - Quick Guide#
 
 Here’s a quick guide on setting up Spark with Scala in Eclipse IDE.
 
