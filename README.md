@@ -5,7 +5,7 @@ Here’s a quick guide on setting up Spark with Scala in Eclipse IDE.
 
 Setting up sbt
 ==============
-- First of all, download [sbt](http://github.com/harrah/xsbt/) and [sbteclipse](https://github.com/typesafehub/sbteclipse). Instructions on how to set those up are pretty well explained on their websites. I would recommend getting sbt 0.13+ and adding the following to the global sbt file at *~/.sbt/plugins/plugins.sbt* (instead of editting the project-specific file): 
+- First of all, download [sbt](https://github.com/sbt/sbt) and [sbteclipse](https://github.com/typesafehub/sbteclipse). Instructions on how to set those up are pretty well explained on their websites. I would recommend getting sbt 0.13+ and adding the following to the global sbt file at *~/.sbt/plugins/plugins.sbt* (instead of editting the project-specific file): 
 
 `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.5.0")`
 
