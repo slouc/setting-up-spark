@@ -15,7 +15,7 @@ object Main {
 
   def main(args: Array[String]) {
 
-    val numSamples = 1000000
+    val numSamples = 10 * 1000 * 1000 // ten million samples
     val conf = new SparkConf().setAppName("sparkintro").setMaster("local")
     val sc = new SparkContext(conf)
 
@@ -25,6 +25,9 @@ object Main {
       if (x * x + y * y < 1) 1 else 0
     }.reduce(_ + _)
 
+    sc.stop
+    
     println("Pi is roughly " + 4.0 * count / numSamples)
+    
   }
 }
