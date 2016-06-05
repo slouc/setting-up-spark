@@ -23,7 +23,7 @@ If you're using IntelliJ then all you need to do is to import the project. Selec
 
 Note: You will need Scala 2.10 for these dependencies to work. At the time of writing this, Scala 2.11 was still not supported.
 
-##Running the code without the cluster##
+##Running without cluster##
 
 Spark is meant to be run on clusters. But just to get you going, you can simply run it on your local machine with some ad-hoc configuration. Make sure to change spark master address to "local" in `Main.scala`:  
 
@@ -34,7 +34,7 @@ Also remove the `% "provided"` part from the `build.sbt` if you want `sbt` to fe
 
 Code that performs the calculation in the `Main.scala` example is taken from an [official examples page](https://spark.apache.org/examples.html).
 
-##Running the code on cluster##
+##Setting up the cluster##
 Of course, there's no fun in simply running a Spark job without a special dedicated cluster. We will see how to run the cluster (master + 4 slaves) locally. but the principle is similar if you want to have it somewhere in the cloud. 
 
 You will need a binary distribution of Spark for this; you can get it [here](http://spark.apache.org/downloads.html) (make sure to select the "pre-built" version). Note that the version you choose doesn't have to be the same as defined in `build.sbt`; however, I'm sure you're aware of possible issues that could arise if you code against one version and then run against another one. 
