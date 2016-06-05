@@ -5,7 +5,7 @@ This guide doesn't explain stuff like:
 - what are RDDs, actions or transformations
 - how to set up JDK on your machine
 
-It's focused on getting Spark up and running within 10 minutes or so. There are more detailed tutorials out there, in case that's what you need (you can start from [this one](https://github.com/mbonaci/mbo-spark) or [this one](https://github.com/deanwampler/spark-scala-tutorial)).
+It is focused on getting Spark up and running under 10-15 minutes, with as little digressions as possible. There are more detailed tutorials out there, in case that's what you need (you can start from [this one](https://github.com/mbonaci/mbo-spark) or [this one](https://github.com/deanwampler/spark-scala-tutorial)).
 
 ##Setting up the project##
 
