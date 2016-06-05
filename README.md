@@ -1,4 +1,4 @@
-#Quick guide on setting up Spark#
+#Quick guide on setting up Spark (using Scala)#
 
 This guide doesn't explain stuff like:
 - how and why Spark works
