@@ -1,6 +1,11 @@
-#Scala Spark Quick Guide#
+#Quick guide on setting up Spark#
 
-Here’s a quick guide on setting up Spark with Scala.
+This guide doesn't explain stuff like:
+- how and why Spark works
+- what are RDDs, actions or transformations
+- how to set up JDK on your machine
+
+It's focused on getting Spark up and running within 10 minutes or so. There are more detailed tutorials out there, in case that's what you need (you can start from [this one](https://github.com/mbonaci/mbo-spark) or [this one](https://github.com/deanwampler/spark-scala-tutorial)).
 
 ##Setting up the project##
 
@@ -8,7 +13,7 @@ First of all, download [sbt](https://github.com/sbt/sbt). Now you can import the
 
 ####Eclipse####
 
-Download [sbteclipse](https://github.com/typesafehub/sbteclipse). I would recommend getting sbt 0.13+ and adding the following to the global sbt file at `~/.sbt/plugins/plugins.sbt` (instead of editting the project-specific file): 
+You will need to "eclipsify" the project. Download [sbteclipse](https://github.com/typesafehub/sbteclipse). I would recommend getting sbt 0.13+ and adding the following to the global sbt file at `~/.sbt/plugins/plugins.sbt` (instead of editting the project-specific file): 
 
 `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.5.0")`
 
