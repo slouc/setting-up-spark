@@ -16,7 +16,7 @@ object Main {
   def main(args: Array[String]) {
 
     val numSamples = 10 * 1000 * 1000 // ten million samples
-    val conf = new SparkConf().setAppName("sparkintro").setMaster("local")
+    val conf = new SparkConf().setAppName("sparkintro")
     val sc = new SparkContext(conf)
 
     val count = sc.parallelize(1 to numSamples).map { i =>
