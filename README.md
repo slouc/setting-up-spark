@@ -92,9 +92,9 @@ In the Spark binary directory, issue the following command:
 
     PATH-TO-SPARK/bin/spark-submit --class CLASSFILE PATH-TO-JAR
     
-Using default values from this repo, it would be something like:
+Using default values from this repo, it would be something like (given it's run from project folder):
 
-    ./bin/spark-submit --class com.slouc.sparkintro.Main /path-to-shiny-app/target/scala-2.10/sparkintro-assembly-1.0.jar 
+    ./bin/spark-submit --class com.slouc.sparkintro.Main ./target/scala-2.10/sparkintro-assembly-1.0.jar 
 
 And voila! Keep an eye on that console on port 8080 and you'll notice your hard-working slaves calculating the value of Pi for you.
 
