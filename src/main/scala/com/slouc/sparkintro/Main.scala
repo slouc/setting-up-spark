@@ -1,8 +1,6 @@
 package com.slouc.sparkintro
 
-import org.apache.spark.SparkContext
-import org.apache.spark.SparkContext._
-import org.apache.spark.SparkConf
+import org.apache.spark.{SparkConf, SparkContext}
 
 /**
  * Basic Spark implementation of estimation of Pi
@@ -16,7 +14,7 @@ object Main {
   def main(args: Array[String]) {
 
     val numSamples = 10 * 1000 * 1000 // ten million samples
-    val conf = new SparkConf().setAppName("sparkintro")
+    val conf = new SparkConf().setAppName("sparkintro").setMaster("spark://sinisas-mbp-2:7077")
     val sc = new SparkContext(conf)
 
     val count = sc.parallelize(1 to numSamples).map { i =>
