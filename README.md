@@ -3,13 +3,13 @@
 This guide doesn't explain stuff like:
 - how and why Spark works
 - what are RDDs, actions or transformations
-- how to set up JDK on your machine
+- how to set up JDK on your machine or how to install Scala
 
 It is focused on getting Spark up and running under 10-15 minutes, with as little digressions as possible. There are more detailed tutorials out there, in case that's what you need (you can start from [this one](https://github.com/mbonaci/mbo-spark) or [this one](https://github.com/deanwampler/spark-scala-tutorial)).
 
 ##Setting up the project##
 
-First of all, download [sbt](https://github.com/sbt/sbt). Now you can import the project into your favourite IDE:
+First of all, download [sbt](https://github.com/sbt/sbt). Now you can import the project into your favourite IDE.
 
 ####Eclipse####
 
@@ -24,13 +24,13 @@ Now create a folder which you will use for your Spark project and place the buil
 You can now simply import the created project as existing project into Eclipse workspace.
 
 ####IntelliJ####
-If you're using IntelliJ then all you need to do is to import the project. Select File -> New -> Project from existing sources and import it as SBT project.
+If you're using IntelliJ then all you need to do is to import the project. Select `File -> New -> Project from existing sources` and import it as SBT project.
 
-Note: You will need Scala 2.10 for these dependencies to work. At the time of writing this, Scala 2.11 was still not supported.
+Note: You will need Scala 2.10 for these dependencies to work. At the time of writing this, Scala 2.11 was still not supported by Spark.
 
-##Running without cluster##
+##Just run the code##
 
-Spark is meant to be run on clusters. But just to get you going, you can simply run it on your local machine with some ad-hoc configuration. Make sure to change spark master address to "local" in `Main.scala`:  
+Spark is meant to be run on clusters. But to get you going, you can simply run it on your local machine with some ad-hoc configuration. Make sure to change spark master address to "local" in `Main.scala`:  
 
     val conf = new SparkConf().setAppName("sparkintro").setMaster("local")
     val sc = new SparkContext(conf)
@@ -39,10 +39,10 @@ Also remove the `% "provided"` part from the `build.sbt` if you want `sbt` to fe
 
 Code that performs the calculation in the `Main.scala` example is taken from an [official examples page](https://spark.apache.org/examples.html).
 
-##Setting up the cluster##
-Of course, there's no fun in simply running a Spark job without a special dedicated cluster. We will see how to run the cluster (master + 4 slaves) locally. but the principle is similar if you want to have it somewhere in the cloud. 
+##Setting up the local cluster##
+Of course, there's no fun in simply running a Spark job without a special dedicated cluster. We will now see how to run the cluster (master + 4 slaves). It's still not the full power of Spark since they're all running on a local machine, but once you get the hang of this, it should be fairly easy to scale out into the cloud or wherever you want.
 
-You will need a binary distribution of Spark for this; you can get it [here](http://spark.apache.org/downloads.html) (make sure to select the "pre-built" version). Note that the version you choose doesn't have to be the same as defined in `build.sbt`; however, I'm sure you're aware of possible issues that could arise if you code against one version and then run against another one. 
+First of all, you will need a binary distribution of Spark for this; you can get it [here](http://spark.apache.org/downloads.html) (make sure to select the "pre-built" version). Note that the version you choose doesn't have to be the same as defined in `build.sbt`, but I'm sure you're aware of possible issues that could arise if you code against one version and then run against another one. 
   
 Next step is to prepare the Spark environment. You can use the template config file provided with the distribution. We will also set the default number of workers to four:
 
@@ -66,7 +66,7 @@ Once the SSH deamon is all good, we can run our master and slave scripts:
     
 There's a change you will be asked for the password since you're attempting to SSH to yourself. 
 
-OK, once that's done you can navigate to http://localhost:8080 to check out the state of your brand new Spark cluster. You should see something like:
+Once that's done you can navigate to http://localhost:8080 to check out the state of your brand new Spark cluster. You should see something like:
 
 ![Screenshot](./images/screenshot.png)
 
@@ -84,7 +84,7 @@ First you need to set the address of your master node in `Main.scala`:
 
 Also, if you removed the "provided" part in the `build.sbt`, now is the good time to bring it back, otherwise you will see tons of errors talking about duplicate versions.
 
-Alright. You can now create the JAR. Easiest way to do it is using [sbt-assembly](https://github.com/sbt/sbt-assembly). Basically all you need to do (and it's already done for you in this repo) is to add the `assembly.sbt` file with needed dependency to the `project` folder. All you need to do now is to run `sbt assembly` task and your shiny app will be created somewhere in `target` folder (if you didn't change anything, it should be something like `target/scala-2.10/sparkintro-assembly-1.0.jar`).
+Alright. You can now create the JAR. Easiest way to do it is using [sbt-assembly](https://github.com/sbt/sbt-assembly). You just need to add the `assembly.sbt` file with needed dependency to the `project` folder (this is already done for you in my repo) and run `sbt assembly` task and your shiny app will be created somewhere in `target` folder (if you didn't change anything, it should be something like `target/scala-2.10/sparkintro-assembly-1.0.jar`).
 
 **Just one more step left**. We need to feed the app to the Spark machinery.
 
