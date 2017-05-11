@@ -1,4 +1,4 @@
-#Quick guide on setting up Spark (using Scala)#
+# Quick guide on setting up Spark (using Scala)
 
 This guide doesn't explain stuff like:
 - how and why Spark works
@@ -7,11 +7,11 @@ This guide doesn't explain stuff like:
 
 It is focused on getting Spark up and running under 10-15 minutes, with as little digressions as possible. There are more detailed tutorials out there, in case that's what you need (you can start from [this one](https://github.com/mbonaci/mbo-spark) or [this one](https://github.com/deanwampler/spark-scala-tutorial)).
 
-##Setting up the project##
+## Setting up the project
 
 First of all, download [sbt](https://github.com/sbt/sbt). Now you can import the project into your favourite IDE.
 
-####Eclipse####
+#### Eclipse
 
 You will need to "eclipsify" the project. Download [sbteclipse](https://github.com/typesafehub/sbteclipse). I would recommend getting sbt 0.13+ and adding the following to the global sbt file at `~/.sbt/plugins/plugins.sbt` (instead of editting the project-specific file): 
 
@@ -23,12 +23,12 @@ Now create a folder which you will use for your Spark project and place the buil
 
 You can now simply import the created project as existing project into Eclipse workspace.
 
-####IntelliJ####
+#### IntelliJ
 If you're using IntelliJ then all you need to do is to import the project. Select `File -> New -> Project from existing sources` and import it as SBT project.
 
 Note: You will need Scala 2.10 for these dependencies to work. At the time of writing this, Scala 2.11 was still not supported by Spark.
 
-##Just run the code##
+## Just run the code
 
 Spark is meant to be run on clusters. But to get you going, you can simply run it on your local machine with some ad-hoc configuration. Make sure to change spark master address to "local" in `Main.scala`:  
 
@@ -39,7 +39,7 @@ Also remove the `% "provided"` part from the `build.sbt` if you want `sbt` to fe
 
 Code that performs the calculation in the `Main.scala` example is taken from an [official examples page](https://spark.apache.org/examples.html).
 
-##Setting up the local cluster##
+## Setting up the local cluster
 Of course, there's no fun in simply running a Spark job without a special dedicated cluster. We will now see how to run the cluster (master + 4 slaves). It's still not the full power of Spark since they're all running on a local machine, but once you get the hang of this, it should be fairly easy to scale out into the cloud or wherever you want.
 
 First of all, you will need a binary distribution of Spark for this; you can get it [here](http://spark.apache.org/downloads.html) (make sure to select the "pre-built" version). Note that the version you choose doesn't have to be the same as defined in `build.sbt`, but I'm sure you're aware of possible issues that could arise if you code against one version and then run against another one. 
@@ -72,7 +72,7 @@ Once that's done you can navigate to http://localhost:8080 to check out the stat
 
 There are some other convinient script for working with daemons, such as `start-all.sh` and `stop-all.sh` which will start/stop all daemons (both master and slaves).
 
-##Running the app on cluster##
+## Running the app on cluster
 
 Now we need to package our app and feed it to running Spark cluster. 
 
