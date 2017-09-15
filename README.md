@@ -80,7 +80,7 @@ First you need to set the address of your master node in `Main.scala`:
 
     .setMaster("[SPARK_ADDRESS]")
     
-(you can see your `SPARK_ADDRESS` when you navigate to Spark console on http://localhost:8080; in my case it was `spark://sinisas-mbp-2:7077`, as seen in the screenshot. 
+(you can see your `SPARK_ADDRESS` when you navigate to Spark console on http://localhost:8080; in my case it was `spark://sinisas-mbp-2:7077`, as seen in the screenshot) 
 
 Also, if you removed the "provided" part in the `build.sbt`, now is the good time to bring it back, otherwise you will see tons of errors talking about duplicate versions.
 
